@@ -21,6 +21,28 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 Run `ng lint` to check code style and find issues. This project uses ESLint for code linting.
 
+## Git Hooks (Husky)
+
+This project uses [Husky](https://typicode.github.io/husky) to prevent commits when tests are failing.
+
+Pre-commit hook runs:
+
+```
+npm run test:ci
+```
+
+If any test fails, the commit is blocked. To reinstall hooks (after cloning or deleting `.husky/`), run:
+
+```
+npm run prepare
+```
+
+To temporarily skip the hook (not recommended):
+
+```
+git commit -m "msg" --no-verify
+```
+
 ## Running unit tests
 
 Run `npm run test` to execute the unit tests via [Jest](https://jestjs.io).
