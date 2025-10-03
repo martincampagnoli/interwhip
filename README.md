@@ -17,6 +17,10 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
+## Linting
+
+Run `ng lint` to check code style and find issues. This project uses ESLint for code linting.
+
 ## Running unit tests
 
 Run `npm run test` to execute the unit tests via [Jest](https://jestjs.io).
