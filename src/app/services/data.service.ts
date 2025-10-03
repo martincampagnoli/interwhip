@@ -19,7 +19,7 @@ export class DataService {
    *
    * @returns An observable containing an array of data results.
    */
-  getData(): Observable<Array<PlaceholderModel>> {
-    return this.httpClient.get<Array<PlaceholderModel>>(this.url);
+  getData(): Observable<PlaceholderModel[]> {
+    return this.httpClient.get<PlaceholderModel[]>(this.url);
   }
 }

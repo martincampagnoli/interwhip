@@ -4,6 +4,7 @@ import { of, catchError, switchMap } from 'rxjs';
 import { getFailure, getData } from './default.actions';
 import { getDataSuccess } from './default.actions';
 import { DataService } from '../../services/data.service';
+import { PlaceholderModel } from '../../models/PlaceholderModel';
 
 /**
  * Effects for managing application actions related to data.
@@ -21,7 +22,9 @@ export class AppEffects {
       ofType(getData),
       switchMap(() =>
         this.dataService.getData().pipe(
-          switchMap((data: any) => [getDataSuccess(data)]),
+          switchMap((data: PlaceholderModel[]) => [
+            getDataSuccess({ payload: data }),
+          ]),
           catchError((error) => of(getFailure({ payload: error })))
         )
       )
