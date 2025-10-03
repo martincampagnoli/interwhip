@@ -1,34 +1,40 @@
 module.exports = {
-  preset: 'jest-preset-angular',
-  setupFilesAfterEnv: ['<rootDir>/setupJest.ts'],
-  testMatch: [
-    '<rootDir>/src/**/*.spec.ts',
-    '<rootDir>/src/**/*.test.ts'
-  ],
+  preset: "jest-preset-angular",
+  setupFilesAfterEnv: ["<rootDir>/setupJest.ts"],
+  testMatch: ["<rootDir>/src/**/*.spec.ts", "<rootDir>/src/**/*.test.ts"],
   collectCoverageFrom: [
-    'src/**/*.ts',
-    '!src/main.ts',
-    '!src/polyfills.ts',
-    '!src/**/*.d.ts',
-    '!src/**/index.ts',
-    '!src/**/*.module.ts',
-    '!src/**/*.spec.ts',
-    '!src/**/*.test.ts'
+    "src/**/*.ts",
+    "!src/main.ts",
+    "!src/polyfills.ts",
+    "!src/**/*.d.ts",
+    "!src/**/index.ts",
+    "!src/**/*.module.ts",
+    "!src/**/*.spec.ts",
+    "!src/**/*.test.ts",
   ],
-  coverageDirectory: 'coverage',
-  coverageReporters: ['html', 'text-summary', 'lcov'],
+  coverageDirectory: "coverage",
+  coverageReporters: ["html", "text-summary", "lcov"],
+  coverageThreshold: {
+    global: {
+      statements: 55,
+      branches: 40,
+      functions: 50,
+      lines: 55,
+    },
+  },
   moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/src/$1',
-    '^src/(.*)$': '<rootDir>/src/$1'
+    "^@/(.*)$": "<rootDir>/src/$1",
+    "^src/(.*)$": "<rootDir>/src/$1",
   },
   transform: {
-    '^.+\\.(ts|js|html)$': ['jest-preset-angular', {
-      tsconfig: 'tsconfig.spec.json',
-      stringifyContentPathRegex: '\\.html$'
-    }]
+    "^.+\\.(ts|js|html)$": [
+      "jest-preset-angular",
+      {
+        tsconfig: "tsconfig.spec.json",
+        stringifyContentPathRegex: "\\.html$",
+      },
+    ],
   },
-  transformIgnorePatterns: [
-    'node_modules/(?!(@angular|@ngrx|rxjs|uuid)/)'
-  ],
-  testEnvironment: 'jsdom'
+  transformIgnorePatterns: ["node_modules/(?!(@angular|@ngrx|rxjs|uuid)/)"],
+  testEnvironment: "jsdom",
 };

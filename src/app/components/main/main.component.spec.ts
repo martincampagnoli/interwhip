@@ -26,4 +26,18 @@ describe('MainComponent', () => {
   it('should match snapshot', () => {
     expect(fixture.nativeElement).toMatchSnapshot();
   });
+
+  it('should render the app-button-link element', () => {
+    const el: HTMLElement = fixture.nativeElement;
+    const btn = el.querySelector('app-button-link');
+    expect(btn).toBeTruthy();
+  });
+
+  it('should pass inputs to the button link (structural check)', () => {
+    const el: HTMLElement = fixture.nativeElement;
+    const btn = el.querySelector('app-button-link');
+    // Since it's a child standalone component rendered, we just assert element exists.
+    // Deeper assertions are in ButtonLinkComponent spec.
+    expect(btn?.outerHTML).toContain('app-button-link');
+  });
 });
