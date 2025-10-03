@@ -1,9 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  input,
-  Input,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 
@@ -33,9 +28,4 @@ export class ButtonLinkComponent {
    * The name or class of the icon to be displayed within the button-styled link.
    */
   readonly icon = input.required<string>();
-
-  /**
-   * Constructs the ButtonLinkComponent.
-   */
-  constructor() {}
 }

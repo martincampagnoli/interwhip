@@ -21,7 +21,9 @@ exports[`MainComponent should match snapshot 1`] = `
         >
           grid_on
         </mat-icon>
-        <span>
+        <span
+          class="ps-1"
+        >
           Placeholder button
         </span>
         <mat-icon

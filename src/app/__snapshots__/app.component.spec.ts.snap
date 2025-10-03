@@ -25,39 +25,6 @@ exports[`AppComponent should match snapshot 1`] = `
     class="content"
     role="main"
   >
-    <app-main>
-      <div
-        class="card-container"
-      >
-        <app-button-link>
-          <a
-            class="card w-100 pb-3 pt-3"
-            href="/placeholder"
-            rel="noopener"
-          >
-            <mat-icon
-              aria-hidden="true"
-              class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
-              data-mat-icon-type="font"
-              role="img"
-            >
-              grid_on
-            </mat-icon>
-            <span>
-              Placeholder button
-            </span>
-            <mat-icon
-              aria-hidden="true"
-              class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
-              data-mat-icon-type="font"
-              role="img"
-            >
-              chevron_right
-            </mat-icon>
-          </a>
-        </app-button-link>
-      </div>
-    </app-main>
     <router-outlet />
     
     <div
@@ -72,6 +39,7 @@ exports[`AppComponent should match snapshot 1`] = `
           title="LinkedIn"
         >
           <img
+            alt="icon"
             height="30"
             src="https://img.icons8.com/color/48/000000/linkedin.png"
             width="30"
@@ -87,6 +55,7 @@ exports[`AppComponent should match snapshot 1`] = `
           title="Github"
         >
           <img
+            alt="icon"
             height="30"
             src="https://img.icons8.com/ios-filled/50/000000/github.png"
             width="30"

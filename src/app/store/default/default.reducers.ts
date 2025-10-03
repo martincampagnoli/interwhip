@@ -6,13 +6,14 @@ import {
   on,
 } from '@ngrx/store';
 import { getDataSuccess, resetAppState } from './default.actions';
+import { PlaceholderModel } from '../../models/PlaceholderModel';
 
 /**
  * The structure of the application state.
  */
 export interface AppState {
   loading: boolean;
-  data: any[];
+  data: PlaceholderModel[];
 }
 
 /**
@@ -70,7 +71,5 @@ export const getAppState = createSelector(
 
 export const getDataState = createSelector(
   selectAppState,
-  (state: AppState) => {
-    return state.data;
-  }
+  (state: AppState) => state.data
 );

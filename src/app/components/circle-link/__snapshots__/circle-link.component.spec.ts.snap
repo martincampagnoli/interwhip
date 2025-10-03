@@ -12,6 +12,7 @@ exports[`CircleLinkComponent should match snapshot with default props 1`] = `
     title="Test Title"
   >
     <img
+      alt="icon"
       height="30"
       src="test-image.jpg"
       width="30"
@@ -32,6 +33,7 @@ exports[`CircleLinkComponent should match snapshot with different props 1`] = `
     title="Documentation"
   >
     <img
+      alt="icon"
       height="30"
       src="angular-logo.png"
       width="30"
@@ -52,6 +54,7 @@ exports[`CircleLinkComponent should match snapshot with special characters in ti
     title="My Awesome App & More!"
   >
     <img
+      alt="icon"
       height="30"
       src="icon-with-special-chars.svg"
       width="30"

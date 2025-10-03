@@ -1,22 +1,17 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of, catchError, switchMap } from 'rxjs';
-import { DataService } from 'src/app/services/data.service';
 import { getFailure, getData } from './default.actions';
 import { getDataSuccess } from './default.actions';
+import { DataService } from '../../services/data.service';
 
 /**
  * Effects for managing application actions related to data.
  */
 @Injectable()
 export class AppEffects {
-  /**
-   * Constructs the AppEffects.
-   *
-   * @param actions$ Observable stream of dispatched actions.
-   * @param moviesService The service for fetching data.
-   */
-  constructor(private actions$: Actions, private dataService: DataService) {}
+  private dataService = inject(DataService);
+  private actions$ = inject(Actions);
 
   /**
    * Effect to fetch data.
@@ -24,7 +19,7 @@ export class AppEffects {
   getData = createEffect(() =>
     this.actions$.pipe(
       ofType(getData),
-      switchMap((action) =>
+      switchMap(() =>
         this.dataService.getData().pipe(
           switchMap((data: any) => [getDataSuccess(data)]),
           catchError((error) => of(getFailure({ payload: error })))

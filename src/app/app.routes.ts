@@ -1,7 +1,12 @@
 import { Routes } from '@angular/router';
-import { MainComponent } from './components/main/main.component';
 
 /**
- * Defines the routes for navigation within the application.
+ * Defines the routes for navigation within the application and lazy loads the components.
  */
-export const routes: Routes = [{ path: '', component: MainComponent }];
+export const routes: Routes = [
+  {
+    path: '',
+    loadComponent: () =>
+      import('./components/main/main.component').then((m) => m.MainComponent),
+  },
+];
