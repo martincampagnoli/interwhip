@@ -5,21 +5,77 @@ It provides basic app scaffolding to build test assessments.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.1 and updated to v20.3.2.
 
-## Development server
+## Environment / Node Version
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+This project expects **Node.js 22 or newer**.
 
-## Code scaffolding
+If you run into unexpected install, lint, or Jest issues, first verify your Node version:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```bash
+node -v
+```
+
+If it's lower than 22, update (recommended via [nvm](https://github.com/nvm-sh/nvm)):
+
+```bash
+nvm install 22
+nvm use 22
+```
+
+Then reinstall dependencies:
+
+```bash
+rm -rf node_modules package-lock.json
+npm install
+```
+
+## Development Server
+
+Start the dev server:
+
+```bash
+ng serve
+```
+
+Then open http://localhost:4200/ (auto reload enabled).
+
+## Code Scaffolding
+
+Generate a component:
+
+```bash
+ng generate component component-name
+```
+
+Other blueprints:
+
+```bash
+ng generate directive|pipe|service|class|guard|interface|enum|module name
+```
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Create a production build:
+
+```bash
+ng build
+```
+
+Output goes to `dist/`.
 
 ## Linting
 
-Run `ng lint` to check code style and find issues. This project uses ESLint for code linting.
+Run ESLint via Angular CLI:
+
+```bash
+ng lint
+```
+
+Run ESLint directly (flat config):
+
+```bash
+npx eslint .
+```
 
 ## Git Hooks (Husky)
 
@@ -27,30 +83,90 @@ This project uses [Husky](https://typicode.github.io/husky) to prevent commits w
 
 Pre-commit hook runs:
 
-```
+```bash
 npm run test:ci
 ```
 
-If any test fails, the commit is blocked. To reinstall hooks (after cloning or deleting `.husky/`), run:
+Reinstall hooks (after fresh clone):
 
-```
+```bash
 npm run prepare
 ```
 
-To temporarily skip the hook (not recommended):
+Skip hook (not recommended):
 
-```
+```bash
 git commit -m "msg" --no-verify
 ```
 
-## Running unit tests
+## Running Unit Tests
 
-Run `npm run test` to execute the unit tests via [Jest](https://jestjs.io).
+Watch mode (developer workflow):
 
-## Running end-to-end tests
+```bash
+npm run test:watch
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Single run:
 
-## Further help
+```bash
+npm test
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+CI mode (no watch + coverage):
+
+```bash
+npm run test:ci
+```
+
+Generate coverage report only:
+
+```bash
+npm run test:coverage
+```
+
+Update snapshots (after intentional UI changes):
+
+```bash
+npm run test:update-snapshots
+```
+
+## End-to-End Tests
+
+No e2e test framework is configured yet. To add one (e.g. Cypress):
+
+```bash
+ng add @cypress/schematic
+```
+
+Then run:
+
+```bash
+ng e2e
+```
+
+## Command Reference
+
+| Task                | Command                           |
+| ------------------- | --------------------------------- |
+| Start dev server    | `ng serve`                        |
+| Build               | `ng build`                        |
+| Lint (Angular)      | `ng lint`                         |
+| Lint (direct)       | `npx eslint .`                    |
+| Unit tests (single) | `npm test`                        |
+| Unit tests (watch)  | `npm run test:watch`              |
+| Unit tests (CI)     | `npm run test:ci`                 |
+| Coverage report     | `npm run test:coverage`           |
+| Update snapshots    | `npm run test:update-snapshots`   |
+| Install git hooks   | `npm run prepare`                 |
+| Bypass hook (avoid) | `git commit -m "msg" --no-verify` |
+
+## Further Help
+
+Angular CLI docs: https://angular.io/cli
+
+Run:
+
+```bash
+ng help
+```
